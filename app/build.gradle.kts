@@ -29,6 +29,8 @@ application {
   mainClass.set("mazeneko.fizzbuzz.App")
 }
 
+tasks.withType<JavaCompile>().configureEach { options.encoding = "UTF-8" }
+
 tasks.named<Test>("test") {
   // Use JUnit Platform for unit tests.
   useJUnitPlatform()
