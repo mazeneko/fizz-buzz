@@ -1,4 +1,7 @@
-plugins { application }
+plugins {
+  application
+  id("io.freefair.lombok") version "8.0.1"
+}
 
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
