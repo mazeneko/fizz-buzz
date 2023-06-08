@@ -7,4 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 1から100までのFizzBuzzを表示する機能を追加しました。
+
 [unreleased]: https://github.com/mazeneko/fizz-buzz/compare/main...HEAD
