@@ -3,6 +3,7 @@
     "vscjava.vscode-java-pack",
     "vscjava.vscode-gradle",
     "fwcd.kotlin",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
