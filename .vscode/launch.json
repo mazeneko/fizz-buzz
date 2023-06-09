@@ -6,7 +6,7 @@
       "name": "Launch",
       "request": "launch",
       "mainClass": "mazeneko.fizzbuzz.App",
-      "projectName": "app"
+      "projectName": "fizzbuzz"
     }
   ]
 }
