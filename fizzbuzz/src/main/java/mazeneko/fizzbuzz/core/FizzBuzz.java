@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
  * FizzBuzz。
  * <p>
  * 数値が3の倍数であればFizz、5の倍数であればBuzz、3と5の両方の倍数であればFizzBuzz、それ以外は数値そのままの文字となります。
+ * <p>
+ * また、FizzとBuzzに対応する数のデフォルトは3と5ですが、任意の{@link FizzBuzzContext}を使用することで別の数に変更することが可能です。
  */
 @EqualsAndHashCode
 public class FizzBuzz {
@@ -22,8 +24,19 @@ public class FizzBuzz {
      * @return FizzBuzzのタイプ
      */
     public static Type forNumber(Integer number) {
-      final var fizz = number % fizzNumber == 0;
-      final var buzz = number % buzzNumber == 0;
+      return forNumber(FizzBuzzContext.getDefault(), number);
+    }
+
+    /**
+     * 数値がFizzBuzzのどのタイプであるかを返します。
+     * 
+     * @param context コンテキスト
+     * @param number  数値
+     * @return FizzBuzzのタイプ
+     */
+    public static Type forNumber(FizzBuzzContext context, Integer number) {
+      final var fizz = number % context.getFizzNumber() == 0;
+      final var buzz = number % context.getBuzzNumber() == 0;
       if (fizz && buzz) {
         return Type.FIZZBUZZ;
       }
@@ -37,11 +50,6 @@ public class FizzBuzz {
     }
   }
 
-  /** Fizzとなる数値の約数 */
-  public static final int fizzNumber = 3;
-  /** Buzzとなる数値の約数 */
-  public static final int buzzNumber = 5;
-
   /**
    * 数値をFizzBuzz文字列に変換します。
    * 
@@ -49,7 +57,18 @@ public class FizzBuzz {
    * @return FizzBuzz文字列
    */
   public static String toFizzBuzzString(Integer number) {
-    return switch (Type.forNumber(number)) {
+    return toFizzBuzzString(FizzBuzzContext.getDefault(), number);
+  }
+
+  /**
+   * 数値をFizzBuzz文字列に変換します。
+   * 
+   * @param context コンテキスト
+   * @param number  数値
+   * @return FizzBuzz文字列
+   */
+  public static String toFizzBuzzString(FizzBuzzContext context, Integer number) {
+    return switch (Type.forNumber(context, number)) {
       case FIZZ -> "Fizz";
       case BUZZ -> "Buzz";
       case FIZZBUZZ -> "FizzBuzz";
@@ -64,14 +83,37 @@ public class FizzBuzz {
    * @return FizzBuzzのインスタンス
    */
   public static FizzBuzz of(Integer number) {
-    return new FizzBuzz(number);
+    return of(FizzBuzzContext.getDefault(), number);
   }
 
+  /**
+   * 数値からインスタンスを生成します。
+   * 
+   * @param context コンテキスト
+   * @param number  数値
+   * @return FizzBuzzのインスタンス
+   */
+  public static FizzBuzz of(FizzBuzzContext context, Integer number) {
+    return new FizzBuzz(context, number);
+  }
+
+  /** コンテキスト */
+  private final FizzBuzzContext context;
   /** 数値 */
   private final Integer number;
 
-  private FizzBuzz(Integer number) {
+  private FizzBuzz(FizzBuzzContext context, Integer number) {
+    this.context = context;
     this.number = number;
+  }
+
+  /**
+   * コンテキストを返します。
+   * 
+   * @return コンテキスト
+   */
+  public FizzBuzzContext getContext() {
+    return context;
   }
 
   /**
@@ -89,7 +131,7 @@ public class FizzBuzz {
    * @return FizzBuzzのタイプ
    */
   public Type getFizzBuzzType() {
-    return Type.forNumber(number);
+    return Type.forNumber(context, number);
   }
 
   /**
@@ -98,7 +140,7 @@ public class FizzBuzz {
    * @return FizzBuzz文字列
    */
   public String getFizzBuzzString() {
-    return toFizzBuzzString(number);
+    return toFizzBuzzString(context, number);
   }
 
   @Override
