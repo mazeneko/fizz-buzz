@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- コマンドライン引数でFizzBuzzの出力範囲を指定できるようになりました。
+
 ### Changed
 
 - 配布されているアプリの名前を`app`から`fizzbuzz`に変更しました。
