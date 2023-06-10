@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0]
+
 ### Added
 
 - コマンドライン引数でFizzBuzzの出力範囲を指定できるようになりました。
@@ -21,5 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 1から100までのFizzBuzzを表示する機能を追加しました。
 
-[unreleased]: https://github.com/mazeneko/fizz-buzz/compare/1.0.0...develop
+[unreleased]: https://github.com/mazeneko/fizz-buzz/compare/1.1.0...develop
 [1.0.0]: https://github.com/mazeneko/fizz-buzz/releases/tag/1.0.0
+[1.1.0]: https://github.com/mazeneko/fizz-buzz/releases/tag/1.1.0
