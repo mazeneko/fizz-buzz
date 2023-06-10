@@ -1,10 +1,10 @@
 package mazeneko.fizzbuzz;
 
-import mazeneko.fizzbuzz.feature.FizzBuzzPrinter;
+import mazeneko.fizzbuzz.controller.terminal.CommandLineController;
 
 public class App {
   public static void main(String[] args) {
-    final var fizzBuzzPrinter = FizzBuzzPrinter.getDefault();
-    fizzBuzzPrinter.print(100);
+    final var controller = new CommandLineController();
+    controller.run(args);
   }
 }
