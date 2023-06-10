@@ -3,10 +3,43 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch",
+      "name": "Launch - no args",
       "request": "launch",
       "mainClass": "mazeneko.fizzbuzz.App",
-      "projectName": "app"
+      "projectName": "fizzbuzz"
+    },
+    {
+      "type": "java",
+      "name": "Launch - free args",
+      "request": "launch",
+      "mainClass": "mazeneko.fizzbuzz.App",
+      "args": "${input:commandLineArgs-prompt}",
+      "projectName": "fizzbuzz"
+    },
+    {
+      "type": "java",
+      "name": "Launch - preset args",
+      "request": "launch",
+      "mainClass": "mazeneko.fizzbuzz.App",
+      "args": "${input:commandLineArgs-pick}",
+      "projectName": "fizzbuzz"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commandLineArgs-prompt",
+      "type": "promptString",
+      "description": "コマンドライン引数を入力してください。",
+    },
+    {
+      "id": "commandLineArgs-pick",
+      "type": "pickString",
+      "description": "コマンドライン引数を選択してください。",
+      "options": [
+        "15",
+        "100",
+        "1000"
+      ]
     }
   ]
 }
