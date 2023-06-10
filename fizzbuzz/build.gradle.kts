@@ -3,7 +3,7 @@ plugins {
   id("io.freefair.lombok") version "8.0.1"
 }
 
-version = "1.1.0"
+version = "1.2.0-SNAPSHOT"
 
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
