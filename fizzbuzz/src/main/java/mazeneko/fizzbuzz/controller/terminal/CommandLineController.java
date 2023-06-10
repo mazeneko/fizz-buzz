@@ -20,7 +20,7 @@ public class CommandLineController {
       return;
     }
 
-    final var fizzBuzzPrinter = FizzBuzzPrinter.getDefault();
-    fizzBuzzPrinter.print(options.fizzBuzzRangeEnd());
+    final var fizzBuzzPrinter = FizzBuzzPrinter.of(options.fizzBuzzContext());
+    fizzBuzzPrinter.print(options.fizzBuzzRangeStart(), options.fizzBuzzRangeEnd());
   }
 }

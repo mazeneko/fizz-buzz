@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- コマンドライン引数でFizzBuzzの出力範囲を、終端だけでなく開始も指定できるようになりました。
+- コマンドライン引数でFizzとBuzzを判定するための約数を変更できるようになりました。
+
 ## [1.1.0]
 
 ### Added
