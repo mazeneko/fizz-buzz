@@ -3,7 +3,7 @@ package mazeneko.fizzbuzz.core;
 /**
  * FizzBuzzのコンテキスト。
  * <p>
- * FizzとBuzzになる数値を判定するための約数が何かを保持します。
+ * FizzとBuzzになる数値を判定するための約数を保持します。
  */
 public class FizzBuzzContext {
   /**
